@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block js %}
 {% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newprofile.css') }}" type="text/css" />
+{% endblock %}
 {% block main %}
     <h1>Add Profile</h1>
     <div class="container">
@@ -29,6 +32,10 @@
      {{ form.biography.label }}
      {{ form.biography }}
      </div>
+     <div class="containers">
+        {{form.fileupload.label(class="block")}}
+        {{form.fileupload}}
+        </div>
      {{ form.csrf_token }} 
      <button type="submit" class="btn btnprimary">Submit</button>
      </form>

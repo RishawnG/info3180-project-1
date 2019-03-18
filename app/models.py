@@ -1,7 +1,7 @@
 from . import db
 
 class User(db.Model):
-    __tablename__ = 'users'
+    __tablename__ = 'user_profiles'
     
     id = db.Column(db.Integer, primary_key = True)
     firstname = db.Column(db.String(80))
@@ -11,7 +11,7 @@ class User(db.Model):
     location = db.Column(db.String(80))
     biography = db.Column(db.Text)
     date = db.Column(db.String(12))
-    photo = db.Column(db.String(80))
+    photo = db.Column(db.String(100))
     
     
     

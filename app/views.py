@@ -32,18 +32,18 @@ def about():
 def format_date_joined(yy,mm,dd):
     return datetime.date(yy,mm,dd).strftime("%B, %d,%Y")
     
-@app.route('/profile')
+@app.route("/profile", methods=["GET", "POST"])
 def profile():
     form = ProfileForm()
     if request.method == "POST" and form.validate_on_submit():
-                firstname = ProfileForm.firstname.data
-                lastname = ProfileForm.lastname.data
-                gender = ProfileForm.gender.data
-                email = ProfileForm.email.data
-                location = ProfileForm.location.data
-                biography = ProfileForm.biography.data
+                firstname = form.firstname.data
+                lastname = form.lastname.data
+                gender = form.gender.data
+                email = form.email.data
+                location = form.location.data
+                biography = form.biography.data
                 created_on = str(datetime.datetime.now()).split()[0]
-                photo = ProfileForm.fileupload.data
+                photo = form.fileupload.data
                 photo_name = secure_filename(photo.filename)
                 
                 user = User(firstname, lastname, gender, email, location, biography, created_on, photo_name)
