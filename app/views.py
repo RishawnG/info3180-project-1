@@ -76,11 +76,11 @@ def specific_profile(userid):
     if user is None:
         return redirect(url_for('home'))
         
-    c_y = int(user.created_on.split("-")[0])
-    c_m = int(user.created_on.split("-")[1])
-    c_d = int(user.created_on.split("-")[2])
+    c_y = int(user.date.split("-")[0])
+    c_m = int(user.date.split("-")[1])
+    c_d = int(user.date.split("-")[2])
     
-    user.created_on = format_date_joined(c_y, c_m, c_d)
+    user.date = format_date_joined(c_y, c_m, c_d)
     
     return render_template("specific_profile.html", user=user)
 
